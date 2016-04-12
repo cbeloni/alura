@@ -28,4 +28,4 @@ def aceitar(request, convite_id):
     return redirect(index)
 
 def get_perfil_logado(request):
-    return Perfil.objects.get(id=4)
+    return Perfil.objects.get(id=6)
