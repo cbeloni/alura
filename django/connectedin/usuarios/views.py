@@ -3,6 +3,7 @@ from django.shortcuts import render,redirect
 from django.views.generic.base import View
 from usuarios.forms import RegistrarUsuarioForm
 from django.contrib.auth.models import User
+from perfis.models import Perfil
 
 class RegistrarUsuarioView(View):
 
@@ -13,7 +14,6 @@ class RegistrarUsuarioView(View):
 
     def post(self, request):
         form = RegistrarUsuarioForm(request.POST)
-
         if form.is_valid():
             dados_form = form.data
 
@@ -23,7 +23,7 @@ class RegistrarUsuarioView(View):
                             email=dados_form['email'], 
                             telefone=dados_form['telefone'],
                             nome_empresa=dados_form['nome_empresa'],
-                            usuario=usuario)
+                            usuario=usuario)        
 
             perfil.save()
 
